@@ -23,7 +23,7 @@
 ## 2. REPOSITORY & FILE OWNERSHIP
 
 ```
-Graviton/
+phishshield-x/
 │
 ├── backend/                  <-- [Member 1 Exclusive Ownership]
 │   ├── app/
