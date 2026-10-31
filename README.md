@@ -1,3 +1,4 @@
+
 # PhishShield X (GRAVITON 2026)
 
 Placeholder root README. Owner: Member 1 (replace on merge).
@@ -10,3 +11,7 @@ Placeholder root README. Owner: Member 1 (replace on merge).
 
 Shared API contract: `docs/api-contract.md` (Member 1).
 Extension setup: see `extension/README.md`.
+
+# phishshield-x
+AI-powered browser security companion for phishing detection, threat intelligence and security awareness.
+
