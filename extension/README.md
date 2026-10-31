@@ -22,7 +22,7 @@ PROVISIONAL, awaiting Member 3: `DASHBOARD_URL`, `REPORT_PATH`, `ARENA_PATH`, `D
 - No `declarativeNetRequest` rules: nothing is blocked at the network layer, so a backend outage cannot leave the browser stuck.
 
 ## Privacy
-Sent: URL (no hash), title (200 chars), visible text (5000 chars), up to 50 links. Skipped: inputs, textareas, selects, contenteditable, hidden elements; text/links skipped entirely on WhatsApp Web, Gmail, Outlook, Telegram Web, Messenger, Discord. Links may contain query strings. Scan cache lives in `storage.session` (cleared on browser close).
+Sent: URL (no hash), title (200 chars), visible text (5000 chars), up to 30 links. Skipped: inputs, textareas, selects, contenteditable, hidden elements; text/links skipped entirely on WhatsApp Web, Gmail, Outlook, Telegram Web, Messenger, Discord. Links may contain query strings. Scan cache lives in `storage.session` (cleared on browser close).
 
 ## Needs from teammates
 - Member 3: final Arena demo origins/paths, report route (`/scans/{scan_id}`?), arena route, and how Arena detects the return.

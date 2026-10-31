@@ -1,0 +1,28 @@
+:root{--bg:#0b1020;--panel:#121a2e;--line:#243049;--text:#e2e8f0;--muted:#94a3b8;--accent:#38bdf8;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text)}
+body.popup{width:340px;padding:14px}
+.wrap{max-width:640px;margin:40px auto;padding:0 16px}
+.brand{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:15px}
+.logo{background:var(--accent);color:#04121f;font-weight:800;font-size:11px;padding:3px 5px;border-radius:5px}
+.domain{font-size:13px;color:var(--muted);margin-bottom:10px;word-break:break-all}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.wcard{border-top:4px solid var(--c,#ef4444);padding:18px}
+.card h1{margin:8px 0 6px;font-size:20px}
+.card h2{margin:0 0 6px;font-size:15px}
+.card p{margin:0 0 6px;font-size:13px;color:var(--muted);line-height:1.5}
+.score{display:flex;align-items:center;gap:12px}
+.num{font-size:36px;font-weight:800;line-height:1}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;color:#04121f}
+.findings{list-style:none;margin:8px 0 0;padding:0}
+.findings li{font-size:12.5px;padding:7px 0;border-top:1px solid var(--line)}
+.findings small{display:block;color:var(--muted);margin-top:2px;word-break:break-word}
+.sev{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.sev-low{background:#22c55e}.sev-medium{background:#eab308}.sev-high{background:#f97316}.sev-critical{background:#ef4444}
+.btn{display:block;width:100%;padding:9px;margin-top:8px;border-radius:8px;border:1px solid var(--line);background:#1b2742;color:var(--text);font:inherit;font-size:13px;cursor:pointer;text-align:center;text-decoration:none}
+.btn.primary{background:var(--accent);color:#04121f;border-color:var(--accent);font-weight:700}
+.btn:hover{filter:brightness(1.12)}
+.link{background:none;border:0;color:var(--muted);font:inherit;font-size:12px;text-decoration:underline;cursor:pointer;padding:12px 0}
+.note{font-size:11.5px!important;color:var(--muted)}
+.spin{width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;display:inline-block;animation:s .8s linear infinite;vertical-align:-2px;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}

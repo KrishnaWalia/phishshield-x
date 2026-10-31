@@ -6,15 +6,23 @@ export const CONFIG = {
 
   // PROVISIONAL: confirm all of these with Member 3 (frontend / Scam Arena).
   DASHBOARD_URL: 'http://localhost:3000',
-  REPORT_PATH: '/scans/{scan_id}',
+  REPORT_PATH: '/reports/{scan_id}',
   ARENA_PATH: '/arena',
-  DEMO_THREATS: [{ origin: 'http://localhost:3000', pathPrefix: '/arena/sim/' }],
+  // Arena scenarios live at /arena/<slug> (simulated browser frame inside the dashboard).
+  DEMO_THREATS: [{ origin: 'http://localhost:3000', pathPrefix: '/arena/' }],
+  // slug -> the FICTIONAL URL shown in that scenario (mirrors frontend/lib/arena.ts). The backend
+  // scans this instead of localhost. If Member 3 changes a scenario URL, update it here.
+  ARENA_SCENARIOS: {
+    'banking-kyc': 'https://novatrust-kyc-verify.account-secure.top/update',
+    'upi-reward': 'http://quickpay-cashback-claim.win/rewards',
+    'fake-job': 'https://brightpath-careers-hiring.work-apply.click/apply',
+  },
 
   INTERRUPT_LEVELS: ['HIGH', 'CRITICAL'], // full-page warning, demo threats ONLY
   REQUEST_TIMEOUT_MS: 10000,
   CACHE_TTL_MS: 5 * 60 * 1000,
   MAX_TEXT_CHARS: 5000,
-  MAX_LINKS: 50,
+  MAX_LINKS: 30, // backend contract: links max 30 items (more => HTTP 422)
 };
 
 export const LEVELS = {
@@ -35,6 +43,10 @@ export function isDemoThreat(url) {
     const u = new URL(url);
     return CONFIG.DEMO_THREATS.some((d) => u.origin === d.origin && u.pathname.startsWith(d.pathPrefix));
   } catch { return false; }
+}
+export function scenarioUrl(url) {
+  if (!isDemoThreat(url)) return null;
+  return CONFIG.ARENA_SCENARIOS[new URL(url).pathname.split('/').filter(Boolean)[1]] || null;
 }
 export function isOwnDashboard(url) {
   try { return new URL(url).origin === new URL(CONFIG.DASHBOARD_URL).origin && !isDemoThreat(url); }

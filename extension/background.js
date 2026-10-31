@@ -1,4 +1,4 @@
-import { CONFIG, LEVELS, isScannable, isDemoThreat, isOwnDashboard, cleanUrl, normalizeResult, reportUrl } from './config.js';
+import { CONFIG, LEVELS, isScannable, isDemoThreat, isOwnDashboard, scenarioUrl, cleanUrl, normalizeResult, reportUrl } from './config.js';
 
 class ScanError extends Error {
   constructor(code, message) { super(message); this.code = code; }
@@ -46,7 +46,7 @@ async function extractPage(tabId, url) {
 async function doScan(tabId, url) {
   const page = await extractPage(tabId, url);
   const result = await post('/api/v1/scan/url', {
-    url, page_title: page.page_title, page_text: page.page_text, links: page.links, source: 'extension',
+    url: scenarioUrl(url) || url, page_title: page.page_title, page_text: page.page_text, links: page.links, source: 'extension',
   });
   return { result, limited: page.limited };
 }
