@@ -20,10 +20,9 @@ OTP_PATTERN = re.compile(
     re.IGNORECASE,
 )
 # Standalone high-entropy 6-digit codes following keywords
-STANDALONE_OTP_PATTERN = re.compile(r"(?<=\b(?:otp|pin|code)[\s:=]{1,10})\b\d{4,8}\b", re.IGNORECASE)
-PASSWORD_PATTERN = re.compile(
-    r"\b(?:password|passwd|pwd|passcode)(?:\s+(?:is|was|hai))?[\s:=#-]*\S+\b",
-    re.IGNORECASE,
+STANDALONE_OTP_PATTERN = re.compile(
+    r"\b(?:otp|pin|code)[\s:=]{1,10}\b\d{4,8}\b",
+    re.IGNORECASE
 )
 AADHAAR_PATTERN = re.compile(r"\b(?:\d{4}[\s-]?\d{4}[\s-]?\d{4}|\d{12})\b")
 PAN_PATTERN = re.compile(r"\b[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}\b")

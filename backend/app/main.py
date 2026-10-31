@@ -107,6 +107,13 @@ async def unhandled_exception_handler(request: Request, exc: Exception):
         },
     )
 
+@app.get("/")
+async def root():
+    return {
+        "message": "PhishShield X Intelligence Backend",
+        "status": "running"
+    }
+
 
 # Register Routers
 app.include_router(health_router)
